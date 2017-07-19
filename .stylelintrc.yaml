@@ -3,7 +3,6 @@ ignoreFiles:
   - node_modules/**/*
   - static/_includes/**/*
 plugins:
-  - stylelint-selector-bem-pattern
   - stylelint-scss
   - stylelint-order
 rules:
@@ -176,6 +175,10 @@ rules:
     - z-index
   # The following prefix rules are enabled since we use autoprefixer
   at-rule-no-vendor-prefix: true
+  # Disable because it breaks scss @ rules
+  at-rule-no-unknown:
+    - true
+    - ignoreAtRules: ["/.+/"]
   media-feature-name-no-vendor-prefix: true
   selector-no-vendor-prefix: true
   value-no-vendor-prefix: true
