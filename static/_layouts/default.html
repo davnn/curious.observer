@@ -1,0 +1,30 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+
+  {% include head.html %}
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFH3ZSK"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    {% include header.html %}
+
+    <main id="{{ page.layout | slugify }}">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+  </body>
+
+</html>
+{% comment %}
+Optimize CSS delivery
+See: https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+{% endcomment %}
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900" rel="stylesheet" type="text/css">

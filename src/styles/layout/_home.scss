@@ -1,0 +1,53 @@
+/**
+ * Home
+ */
+
+#home > #intro,
+#home > #post-list {
+  @include container;
+
+  @include breakpoint($breakpoint-tablet-landscape-up) {
+    max-width: $width-large;
+  }
+}
+
+#home > #intro {
+  > h1 {
+    max-width: 10em;
+    margin-bottom: spacing(3);
+    color: $color-text-dark;
+    font-size: $font-size-6;
+    line-height: 1.2;
+  }
+
+  > p {
+    max-width: $measure-medium;
+    color: $color-text-dark-secondary;
+    font-family: $font-family--sans;
+    font-size: $font-size-3;
+    hyphens: auto;
+  }
+
+  .dots {
+    @include dots;
+  }
+
+  @include breakpoint($breakpoint-tablet-portrait-up) {
+    > h1 {
+      font-size: $font-size-subheadline;
+    }
+  }
+
+  @include breakpoint($breakpoint-tablet-landscape-up) {
+    > h1 {
+      font-size: $font-size-headline;
+    }
+  }
+}
+
+#home > #post-list {
+  position: relative; // overlay the above content
+  padding-top: spacing(3);
+
+  @include post-list;
+}

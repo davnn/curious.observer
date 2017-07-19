@@ -1,0 +1,66 @@
+html {
+  height: 100%; // Keep footer at bottom
+}
+
+body {
+  position: relative; // Keep footer at bottom
+  min-height: 100%; // Keep footer at bottom
+  // Keep footer at bottom
+  // padding-bottom: $footer-height;
+  // No footer currently
+  font-family: $font-family--serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: $color-brand;
+}
+
+a {
+  color: $color-brand;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .075);
+
+  &:active {
+    color: $color-brand-dark;
+  }
+}
+
+label {
+  // Same as url
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .075);
+}
+
+img {
+  max-width: 100%;
+}
+
+// Fix hyphenation of pre content, which should never be needed
+// Content gets hyphenated in Safari and Chrome Mobile and does
+// not get hyphenated on desktop Chrome
+pre {
+  font-family: $font-family--mono;
+  hyphens: none;
+}
+
+// Default top and bottom padding
+main {
+  padding: spacing(2) 0;
+
+  @include breakpoint($breakpoint-large-desktop-up) {
+    padding: spacing(5) 0 spacing(2);
+  }
+}

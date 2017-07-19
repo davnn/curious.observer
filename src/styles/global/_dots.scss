@@ -1,0 +1,43 @@
+// Dots are inside label to enable js-free transition
+@mixin dots {
+  + label {
+    display: inline;
+    margin: 0 auto;
+    user-select: none;
+    transition: opacity .5s;
+    white-space: nowrap;
+    cursor: pointer;
+
+    > * {
+      transition: color .25s;
+      color: $color-brand;
+    }
+
+    &:active > *,
+    &:focus > * {
+      color: $color-brand-dark;
+    }
+  }
+
+  &:checked + label {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  + label + span {
+    display: block;
+    height: 0;
+    transform: translateY(-25%);
+    transition-duration: .5s;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
+    opacity: 0;
+  }
+
+  &:checked + label + span {
+    height: initial;
+    margin-top: spacing(1);
+    transform: none;
+    opacity: 1;
+  }
+}

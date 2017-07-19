@@ -1,0 +1,84 @@
+/**
+ * Minimal CSS reset adapted to work well with Sanitize CSS.
+ * Based on the classic css reset from Eric Meyer (https://meyerweb.com/eric/tools/css/reset/)
+ */
+
+/**
+ * Remove default margin and padding
+ */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Remove default list style
+ */
+ol,
+ul {
+  list-style: none;
+}
+
+/**
+ * Remove default link style
+ */
+a {
+  text-decoration: none;
+}
+
+/**
+ * Remove default button style
+ */
+button,
+select {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+/**
+ * Remove default tap highlight
+ */
+a,
+button,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+ * Remove default quote styling
+ */
+blockquote,
+q {
+  quotes: none;
+
+  &::before,
+  &::after {
+    content: "";
+    content: none;
+  }
+}
+
+/**
+ * Remove default border spacing
+ */
+table {
+  border-spacing: 0;
+}

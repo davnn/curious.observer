@@ -1,0 +1,126 @@
+// Custom syntax highlighting theme loosely based on the VS theme
+// See: http://richleland.github.io/pygments-css/
+
+$_color-comment: grey;
+$_color-error: red;
+$_color-keyword: blue;
+$_color-string: green;
+$_color-generic: black;
+$_color-string: darkred;
+$_color-number: blue;
+
+.highlight {
+  .sd, /* Literal.String.Doc */
+  .c, /* Comment */
+  .ch, /* Comment.Hashbang */
+  .cm, /* Comment.Multiline */
+  .cpf, /* Comment.PreprocFile */
+  .c1, /* Comment.Single */
+  .cp, /* Comment.Preproc */
+  .cs { /* Comment.Special */
+    color: $_color-comment;
+  }
+
+  .gr, /* Generic.Error */
+  .err { /* Error */
+    color: $_color-error;
+  }
+
+  .k, /* Keyword */
+  .kc, /* Keyword.Constant */
+  .kd, /* Keyword.Declaration */
+  .kn, /* Keyword.Namespace */
+  .kp, /* Keyword.Pseudo */
+  .kr, /* Keyword.Reserved */
+  .kt, /* Keyword.Type */
+  .ow { /* Operator.Word */
+    color: $_color-keyword;
+  }
+
+  .gt, /* Generic.Traceback */
+  .go, /* Generic.Output */
+  .gi, /* Generic.Inserted */
+  .gd, /* Generic.Deleted */
+  .ge, /* Generic.Emphasize */
+  .gh, /* Generic.Heading */
+  .gp, /* Generic.Prompt */
+  .gs, /* Generic.Strong */
+  .gu { /* Generic.Subheading */
+    color: $_color-generic;
+  }
+
+  .s, /* Literal.String */
+  .sa, /* Literal.String.Affix */
+  .sb, /* Literal.String.Backtick */
+  .sc, /* Literal.String.Char */
+  .dl, /* Literal.String.Delimiter */
+  .s2, /* Literal.String.Double */
+  .se, /* Literal.String.Escape */
+  .sh, /* Literal.String.Heredoc */
+  .si, /* Literal.String.Interpol */
+  .sx, /* Literal.String.Other */
+  .sr, /* Literal.String.Regex */
+  .s1, /* Literal.String.Single */
+  .ss { /* Literal.String.Symbol */
+    color: $_color-string;
+  }
+
+  .m, /* Literal.Number */
+  .mb, /* Literal.Number.Bin */
+  .mf, /* Literal.Number.Float */
+  .mh, /* Literal.Number.Hex */
+  .mi, /* Literal.Number.Integer */
+  .mo, /* Literal.Number.Oct */
+  .il { /* Literal.Number.Integer.Long */
+    color: $_color-number;
+  }
+}
+
+// Unfortunately pandoc highlighting uses highlighting-kate
+// This should align the styles of both highlighters
+.sourceCode {
+  .va, /* Variable */
+  .kw, /* Keyword */
+  .im, /* Import */
+  .cf { /* ControlFlow */
+    color: $_color-keyword;
+  }
+
+  .in, /* Information */
+  .an, /* Annotation */
+  .cv, /* CommentVar */
+  .do, /* Documentation */
+  .co { /* Comment */
+    color: $_color-comment;
+  }
+
+  .dv, /* DecVal */
+  .bn, /* BaseN */
+  .fl { /* Float */
+    color: $_color-number;
+  }
+
+  .cn, /* Constant */
+  .sc, /* SpecialChar */
+  .vs, /* VerbatimString */
+  .ss, /* SpecialString */
+  .ch, /* Char */
+  .st { /* String */
+    color: $_color-string;
+  }
+
+  .al, /* Alert */
+  .wa, /* Warning */
+  .er { /* Error */
+    color: $_color-error;
+  }
+
+  //.dt { } /* DataType */
+  //.ot { } /* Other */
+  //.fu { } /* Function */
+  //.op { } /* Operator */
+  //.bu { } /* BuiltIn */
+  //.ex { } /* Extension */
+  //.pp { } /* Preprocessor */
+  //.at { } /* Attribute */
+}

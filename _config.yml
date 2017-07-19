@@ -1,0 +1,74 @@
+# Site details
+title: Curious Observer
+author: David Muhr
+email: dm@curious.observer
+description: > # this means to ignore newlines until "baseurl:"
+  Curious Observer is about exploring science and technology. This blog is a place to learn about interesting ideas, explained from first principles.
+
+# Site configuration
+baseurl: ""
+url: "https://curious.observer"
+repository: "https://github.com/davnn/curious.observer"
+lang: en
+timezone: Europe/Vienna
+
+# Build settings
+source: "static"
+destination: "public"
+exclude: ["scripts", "styles", "node_modules", "vendor"] # vendor is excluded because of travis CI
+permalink: /:categories/ # Pretty links purely based on categories
+strict_front_matter: true # Cause a build to fail if there is a YAML syntax error
+excerpt_separator: <!--more--> # Post settings
+data_dir: articles # Create custom data files directly in the articles directory
+
+# Use pandoc plugin as a markdown processsor
+markdown: Pandoc
+pandoc:
+  options:
+    from: markdown_github+citations+footnotes+inline_notes
+    to: html5
+    csl: ./static/assets/_hidden/ieee.csl
+    # Needed until https://github.com/jgm/pandoc/issues/1612
+    # --toc flag gets set by plugin and YAMl frontmatter toc: true
+    template: ./static/assets/_hidden/template.md
+  flags:
+  - smart
+  - normalize
+
+# This options is mostly disabled in development to speed up builds
+jupyter:
+  enable: true
+
+# Compress_html layout options
+# http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: all
+  ignore:
+    envs: ["development"]
+  blanklines: false
+  profile: false
+  startings: []
+
+# Seo specifics
+title_index: Curious Observer | Data. Science. Code. Design. Thoughts.
+title_separator: " | "
+google_site_verification: l4qDc2YcS8N4VrJnhEB_RY5X9xfO5X8aob0M3C3I0J8
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/meta/galaxy.jpg
+
+# Tag specifics
+tag_page_layout: tag
+tag_page_dir: tag
+tag_permalink_style: pretty
+
+# External plugins
+plugins:
+- jekyll/tagging
+- jekyll-seo-tag
+- jekyll-git_metadata

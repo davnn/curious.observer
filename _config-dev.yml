@@ -1,0 +1,6 @@
+show_drafts: true
+unpublished: true
+
+# This options is mostly disabled in development to speed up builds
+jupyter:
+  enable: false

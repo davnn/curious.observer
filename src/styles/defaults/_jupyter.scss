@@ -1,0 +1,585 @@
+/**
+ * Original Jupyter notebook styles, stripped from "Old Browsers" cruft
+ * Used in: _notebook.scss
+ */
+
+/* stylelint-disable */
+@mixin _nb-styles {
+  /*!
+   *
+   * IPython notebook
+   *
+  */
+
+  div.cell {
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    width: 100%;
+    padding: 5px;
+    /* This acts as a spacer between cells, that is outside the border */
+    margin: 0px;
+    outline: none;
+    border-left-width: 1px;
+    padding-left: 5px;
+    background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  }
+  .prompt {
+    /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+    min-width: 14ex;
+    /* This padding is tuned to match the padding on the CodeMirror editor. */
+    padding: 0.4em;
+    margin: 0px;
+    font-family: monospace;
+    text-align: right;
+    /* This has to match that of the the CodeMirror class line-height below */
+    line-height: 1.21429em;
+    /* Don't highlight prompt number selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* Use default cursor */
+    cursor: default;
+  }
+  @media (max-width: 540px) {
+    .prompt {
+      text-align: left;
+    }
+  }
+  div.inner_cell {
+    min-width: 0;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    /* Modern browsers */
+    flex: 1;
+  }
+  /* input_area and input_prompt must match in top border and margin for alignment */
+  div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+    line-height: 1.21429em;
+  }
+  /* This is needed so that empty prompt areas can collapse to zero height when there
+     is no content in the output_subarea and the prompt. The main purpose of this is
+     to make sure that empty JavaScript output_subareas have no height. */
+  div.prompt:empty {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  div.unrecognized_cell {
+    padding: 5px 5px 5px 0px;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  div.unrecognized_cell .inner_cell {
+    border-radius: 2px;
+    padding: 5px;
+    font-weight: bold;
+    color: red;
+    border: 1px solid #cfcfcf;
+    background: #eaeaea;
+  }
+  div.unrecognized_cell .inner_cell a {
+    color: inherit;
+    text-decoration: none;
+  }
+  div.unrecognized_cell .inner_cell a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+  @media (max-width: 540px) {
+    div.unrecognized_cell > div.prompt {
+      display: none;
+    }
+  }
+  div.code_cell {
+    /* avoid page breaking on code cells when printing */
+  }
+  @media print {
+    div.code_cell {
+      page-break-inside: avoid;
+    }
+  }
+  /* any special styling for code cells that are currently running goes here */
+  div.input {
+    page-break-inside: avoid;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  @media (max-width: 540px) {
+    div.input {
+      /* Modern browsers */
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  /* input_area and input_prompt must match in top border and margin for alignment */
+  div.input_prompt {
+    color: #303F9F;
+    border-top: 1px solid transparent;
+  }
+  div.input_area > div.highlight {
+    margin: 0.4em;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+  }
+  div.input_area > div.highlight > pre {
+    margin: 0px;
+    border: none;
+    padding: 0px;
+    background-color: transparent;
+  }
+  /**
+   OUTPUT
+   */
+  div.output_wrapper {
+    /* this position must be relative to enable descendents to be absolute within it */
+    position: relative;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 1;
+  }
+  /* class for the output area when it should be height-limited */
+  div.output_scroll {
+    /* ideally, this would be max-height, but FF barfs all over that */
+    height: 24em;
+    /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+    width: 100%;
+    overflow: auto;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+    display: block;
+  }
+  /* output div while it is collapsed */
+  div.output_collapsed {
+    margin: 0px;
+    padding: 0px;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  div.out_prompt_overlay {
+    height: 100%;
+    padding: 0px 0.4em;
+    position: absolute;
+    border-radius: 2px;
+  }
+  div.out_prompt_overlay:hover {
+    /* use inner shadow to get border that is computed the same on WebKit/FF */
+    -webkit-box-shadow: inset 0 0 1px #000;
+    box-shadow: inset 0 0 1px #000;
+    background: rgba(240, 240, 240, 0.5);
+  }
+  div.output_prompt {
+    color: #D84315;
+  }
+  /* This class is the outer container of all output sections. */
+  div.output_area {
+    padding: 0px;
+    page-break-inside: avoid;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  div.output_area .MathJax_Display {
+    text-align: left !important;
+  }
+  div.output_area .rendered_html table {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  div.output_area .rendered_html img {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  div.output_area img,
+  div.output_area svg {
+    max-width: 100%;
+    height: auto;
+  }
+  div.output_area img.unconfined,
+  div.output_area svg.unconfined {
+    max-width: none;
+  }
+  /* This is needed to protect the pre formating from global settings such
+     as that of bootstrap */
+  .output {
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  @media (max-width: 540px) {
+    div.output_area {
+      /* Modern browsers */
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  div.output_area pre {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    color: black;
+    background-color: transparent;
+    border-radius: 0;
+  }
+  /* This class is for the output subarea inside the output_area and after
+     the prompt div. */
+  div.output_subarea {
+    overflow-x: auto;
+    padding: 0.4em;
+    /* Modern browsers */
+    flex: 1;
+    max-width: calc(100% - 14ex);
+  }
+  div.output_scroll div.output_subarea {
+    overflow-x: visible;
+  }
+  /* The rest of the output_* classes are for special styling of the different
+     output types */
+  /* all text output has this class: */
+  div.output_text {
+    text-align: left;
+    color: #000;
+    /* This has to match that of the the CodeMirror class line-height below */
+    line-height: 1.21429em;
+  }
+  /* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+  div.output_stderr {
+    background: #fdd;
+    /* very light red background for stderr */
+  }
+  div.output_latex {
+    text-align: left;
+  }
+  /* Empty output_javascript divs should have no height */
+  div.output_javascript:empty {
+    padding: 0;
+  }
+  .js-error {
+    color: darkred;
+  }
+  /* raw_input styles */
+  div.raw_input_container {
+    line-height: 1.21429em;
+    padding-top: 5px;
+  }
+  pre.raw_input_prompt {
+    /* nothing needed here. */
+  }
+  input.raw_input {
+    font-family: monospace;
+    font-size: inherit;
+    color: inherit;
+    width: auto;
+    /* make sure input baseline aligns with prompt */
+    vertical-align: baseline;
+    /* padding + margin = 0.5em between prompt and cursor */
+    padding: 0em 0.25em;
+    margin: 0em 0.25em;
+  }
+  input.raw_input:focus {
+    box-shadow: none;
+  }
+  p.p-space {
+    margin-bottom: 10px;
+  }
+  div.output_unrecognized {
+    padding: 5px;
+    font-weight: bold;
+    color: red;
+  }
+  div.output_unrecognized a {
+    color: inherit;
+    text-decoration: none;
+  }
+  div.output_unrecognized a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+  .rendered_html {
+    color: #000;
+    /* any extras will just be numbers: */
+  }
+  .rendered_html em {
+    font-style: italic;
+  }
+  .rendered_html strong {
+    font-weight: bold;
+  }
+  .rendered_html u {
+    text-decoration: underline;
+  }
+  .rendered_html :link {
+    text-decoration: underline;
+  }
+  .rendered_html :visited {
+    text-decoration: underline;
+  }
+  .rendered_html h1 {
+    font-size: 185.7%;
+    margin: 1.08em 0 0 0;
+    font-weight: bold;
+    line-height: 1.0;
+  }
+  .rendered_html h2 {
+    font-size: 157.1%;
+    margin: 1.27em 0 0 0;
+    font-weight: bold;
+    line-height: 1.0;
+  }
+  .rendered_html h3 {
+    font-size: 128.6%;
+    margin: 1.55em 0 0 0;
+    font-weight: bold;
+    line-height: 1.0;
+  }
+  .rendered_html h4 {
+    font-size: 100%;
+    margin: 2em 0 0 0;
+    font-weight: bold;
+    line-height: 1.0;
+  }
+  .rendered_html h5 {
+    font-size: 100%;
+    margin: 2em 0 0 0;
+    font-weight: bold;
+    line-height: 1.0;
+    font-style: italic;
+  }
+  .rendered_html h6 {
+    font-size: 100%;
+    margin: 2em 0 0 0;
+    font-weight: bold;
+    line-height: 1.0;
+    font-style: italic;
+  }
+  .rendered_html h1:first-child {
+    margin-top: 0.538em;
+  }
+  .rendered_html h2:first-child {
+    margin-top: 0.636em;
+  }
+  .rendered_html h3:first-child {
+    margin-top: 0.777em;
+  }
+  .rendered_html h4:first-child {
+    margin-top: 1em;
+  }
+  .rendered_html h5:first-child {
+    margin-top: 1em;
+  }
+  .rendered_html h6:first-child {
+    margin-top: 1em;
+  }
+  .rendered_html ul {
+    list-style: disc;
+    margin: 0em 2em;
+    padding-left: 0px;
+  }
+  .rendered_html ul ul {
+    list-style: square;
+    margin: 0em 2em;
+  }
+  .rendered_html ul ul ul {
+    list-style: circle;
+    margin: 0em 2em;
+  }
+  .rendered_html ol {
+    list-style: decimal;
+    margin: 0em 2em;
+    padding-left: 0px;
+  }
+  .rendered_html ol ol {
+    list-style: upper-alpha;
+    margin: 0em 2em;
+  }
+  .rendered_html ol ol ol {
+    list-style: lower-alpha;
+    margin: 0em 2em;
+  }
+  .rendered_html ol ol ol ol {
+    list-style: lower-roman;
+    margin: 0em 2em;
+  }
+  .rendered_html ol ol ol ol ol {
+    list-style: decimal;
+    margin: 0em 2em;
+  }
+  .rendered_html * + ul {
+    margin-top: 1em;
+  }
+  .rendered_html * + ol {
+    margin-top: 1em;
+  }
+  .rendered_html hr {
+    color: black;
+    background-color: black;
+  }
+  .rendered_html pre {
+    margin: 1em 2em;
+  }
+  .rendered_html pre,
+  .rendered_html code {
+    border: 0;
+    background-color: #fff;
+    color: #000;
+    font-size: 100%;
+    padding: 0px;
+  }
+  .rendered_html blockquote {
+    margin: 1em 2em;
+  }
+  .rendered_html table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .rendered_html tr,
+  .rendered_html th,
+  .rendered_html td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 1em 2em;
+  }
+  .rendered_html td,
+  .rendered_html th {
+    text-align: left;
+    vertical-align: middle;
+    padding: 4px;
+  }
+  .rendered_html th {
+    font-weight: bold;
+  }
+  .rendered_html * + table {
+    margin-top: 1em;
+  }
+  .rendered_html p {
+    text-align: left;
+  }
+  .rendered_html * + p {
+    margin-top: 1em;
+  }
+  .rendered_html img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rendered_html * + img {
+    margin-top: 1em;
+  }
+  .rendered_html img,
+  .rendered_html svg {
+    max-width: 100%;
+    height: auto;
+  }
+  .rendered_html img.unconfined,
+  .rendered_html svg.unconfined {
+    max-width: none;
+  }
+  div.text_cell {
+    /* Modern browsers */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  @media (max-width: 540px) {
+    div.text_cell > div.prompt {
+      display: none;
+    }
+  }
+  div.text_cell_render {
+    /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+    outline: none;
+    resize: none;
+    width: inherit;
+    border-style: none;
+    padding: 0.5em 0.5em 0.5em 0.4em;
+    color: #000;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+  a.anchor-link:link {
+    text-decoration: none;
+    padding: 0px 20px;
+    visibility: hidden;
+  }
+  h1:hover .anchor-link,
+  h2:hover .anchor-link,
+  h3:hover .anchor-link,
+  h4:hover .anchor-link,
+  h5:hover .anchor-link,
+  h6:hover .anchor-link {
+    visibility: visible;
+  }
+  .text_cell.rendered .input_area {
+    display: none;
+  }
+  .text_cell.rendered .rendered_html {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .text_cell.unrendered .text_cell_render {
+    display: none;
+  }
+  .cm-header-1,
+  .cm-header-2,
+  .cm-header-3,
+  .cm-header-4,
+  .cm-header-5,
+  .cm-header-6 {
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .cm-header-1 {
+    font-size: 185.7%;
+  }
+  .cm-header-2 {
+    font-size: 157.1%;
+  }
+  .cm-header-3 {
+    font-size: 128.6%;
+  }
+  .cm-header-4 {
+    font-size: 110%;
+  }
+  .cm-header-5 {
+    font-size: 100%;
+    font-style: italic;
+  }
+  .cm-header-6 {
+    font-size: 100%;
+    font-style: italic;
+  }
+}
+/* stylelint-enable */

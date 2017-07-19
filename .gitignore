@@ -1,0 +1,11 @@
+.idea/
+.ipynb_checkpoints/
+node_modules/
+public/
+dist/
+.git-metadata/
+.sass-cache
+.jekyll-metadata
+.DS_Store
+npm-debug.log
+Gemfile.lock

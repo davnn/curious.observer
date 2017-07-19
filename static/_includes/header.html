@@ -1,0 +1,17 @@
+<header id="site-header">
+  <nav>
+    {% include header/logo.html %}
+
+    <input type="checkbox" id="nav-toggle" hidden>
+    <label for="nav-toggle">
+      <i class="icon-open">{% include assets/site/menu.svg %}</i>
+      <i class="icon-close">{% include assets/site/close.svg %}</i>
+    </label>
+
+    <div class="site-navigation">
+      {% include header/tags.html %}
+
+      {% include header/contact.html %}
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,155 @@
+
+#site-header {
+  @include container;
+
+  height: $header-height;
+  font-family: $font-family--sans;
+  letter-spacing: .1em;
+  line-height: 2;
+
+  > nav {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  h4 {
+    margin-bottom: .5em;
+  }
+
+  .tags > a {
+    position: relative;
+  }
+
+  .tags > a.active {
+    font-weight: bold;
+  }
+
+  .tags > a:not(:last-child)::after {
+    padding-right: 1rem;
+    padding-left: 1.3rem;
+    color: $color-text-dark-disabled;
+    font-weight: normal;
+    content: "/";
+  }
+
+  .tags > a > span {
+    position: absolute;
+    font-size: 12px;
+  }
+
+  .contact {
+    margin-top: spacing(2);
+  }
+
+  .contact > a {
+    display: block;
+  }
+
+  .site-logo {
+    display: block;
+    width: 45px;
+  }
+
+  .site-logo > svg {
+    transition: fill .25s;
+
+    &:active {
+      fill: $color-brand-dark;
+    }
+  }
+
+  #nav-toggle + label > .icon-close {
+    display: none; // Initially don't display the close icon
+  }
+
+  #nav-toggle + label {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #nav-toggle:checked {
+    ~ .site-navigation {
+      transform: none;
+      opacity: 1; // Display the navigation when checked
+      pointer-events: auto;
+    }
+
+    + label {
+      z-index: $zindex-navigation-icon;
+    }
+
+    + label > .icon-close {
+      display: inline-block; // Display close icon when nav is open
+    }
+
+    + label > .icon-open {
+      display: none; // Hide open icon when nav is open
+    }
+  }
+
+  .site-navigation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: ($container-padding / 2) (-$container-padding / 2) 0 (-$container-padding / 2);
+    padding: spacing(2);
+    pointer-events: none;
+    transform: scale(.95);
+    transform-origin: 100% 0;
+    transition-duration: .25s;
+    transition-property: transform, opacity;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(50, 50, 93, .1), 0 5px 15px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
+    will-change: transform, opacity;
+    opacity: 0;
+    overflow: hidden;
+    z-index: $zindex-navigation;
+  }
+}
+
+@include breakpoint($breakpoint-large-desktop-up) {
+  #site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $header-width;
+    height: 100%;
+    border-right: 1px solid $color-divider-dark;
+    background-color: white;
+
+    > nav {
+      flex-direction: column;
+      align-items: initial; // reset
+    }
+
+    .site-logo {
+      margin: 0 auto;
+      padding-top: spacing(3);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    #nav-toggle + label {
+      display: none;
+    }
+
+    .site-navigation {
+      position: initial; // reset
+      box-shadow: initial; // reset
+      pointer-events: initial; // reset
+      opacity: 1;
+    }
+  }
+
+  @at-root {
+    main {
+      padding-left: $header-width;
+    }
+  }
+}

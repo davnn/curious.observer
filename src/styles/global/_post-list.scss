@@ -1,0 +1,44 @@
+@mixin post-list {
+  ul > li {
+    &:not(:last-child) {
+      margin-bottom: spacing(2);
+      padding-bottom: spacing(2);
+      border-bottom: 1px solid $color-divider-dark;
+    }
+  }
+
+  ul a {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+    transition-duration: .25s;
+    transition-property: color;
+    color: $color-brand;
+    font-size: $font-size-4;
+    font-weight: normal;
+
+    &:hover,
+    &:focus {
+      color: $color-brand;
+    }
+
+    &:active {
+      color: $color-brand-dark;
+    }
+
+    > span {
+      padding-top: .5rem;
+      color: $color-text-dark-secondary;
+      font-family: $font-family--sans;
+      font-size: $font-size-1;
+    }
+
+    @include breakpoint($breakpoint-tablet-landscape-up) {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      color: $color-text-dark-secondary;
+      font-size: $font-size-5;
+    }
+  }
+}

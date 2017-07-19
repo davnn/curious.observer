@@ -1,0 +1,70 @@
+/* stylelint-disable max-nesting-depth  */
+.jupyter-notebook {
+  font-family: $font-family--mono;
+
+  // Area inside output area
+  .output_subarea {
+    pre {
+      border: 1px solid #dfdfdf !important;
+      background-color: #fdfdfd !important;
+    }
+
+    @include breakpoint($breakpoint-tablet-portrait-up) {
+      pre {
+        border: none !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  // Cell is the outermost wrapper
+  .cell + .cell {
+    margin-top: 1rem;
+  }
+
+  // Output directly following input or other output
+  .input_area + .output_subarea,
+  .output_subarea + .output_subarea {
+    margin-top: .5rem;
+  }
+
+  // input following output
+  .output_subarea + .input_area {
+    margin-top: 1.5rem;
+  }
+
+  .output_subarea {
+    overflow: auto;
+
+    table {
+      border: none;
+      color: black;
+      border-collapse: collapse;
+      border-spacing: 0;
+      table-layout: fixed;
+
+      thead {
+        border-bottom: 1px solid black;
+        vertical-align: bottom;
+      }
+
+      tr {
+        border: none;
+        line-height: normal;
+        text-align: right;
+      }
+
+      td,
+      th {
+        padding: .5rem;
+        border: none;
+      }
+    }
+  }
+
+  .output_subarea::before {
+    color: $color-text-dark-secondary;
+    font-size: $font-size-1;
+    content: "Out:";
+  }
+}

@@ -1,0 +1,35 @@
+language: python
+python: 3.6
+
+addons:
+  apt_packages:
+    - pandoc
+    - pandoc-citeproc
+
+before_install:
+  - rvm install 2.3.3
+  - nvm install node
+
+install:
+- gem install bundler
+- pip install jupyter
+- npm install
+
+script:
+- bundle install
+- npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  local_dir: public
+  on:
+    branch: master
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation
+
+sudo: false # route your build to the container-based infrastructure for a faster build
+dist: trusty

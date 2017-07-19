@@ -1,0 +1,18 @@
+<div class="tags">
+  <h4>Filter articles</h4>
+  {% if page.tag == "All" %}
+    <a href="/{{ site.tag_page_dir }}/all/" class="active">All<span>{{ site.posts | size }}</span></a>
+  {% else %}
+    <a href="/{{ site.tag_page_dir }}/all/">All<span>{{ site.posts | size }}</span></a>
+  {% endif %}
+
+  {% assign sorted_tags = site.tags | sort %}
+  {% for tag in sorted_tags %}
+    {% assign t = tag | first %}
+    {% if page.tag == t %}
+      <a href="/{{ site.tag_page_dir }}/{{ t | slugify }}/" class="active">{{ t }}<span>{{ tag[1] | size }}</span></a>
+    {% else %}
+      <a href="/{{ site.tag_page_dir }}/{{ t | slugify }}/">{{ t }}<span>{{ tag[1] | size }}</span></a>
+    {% endif %}
+  {% endfor %}
+</div>

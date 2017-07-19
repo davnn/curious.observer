@@ -1,0 +1,55 @@
+#error {
+  min-height: calc(100vh - #{$header-height});
+  background-image: url(/assets/global/404.svg);
+  background-repeat: repeat;
+  background-size: $font-size-5;
+  text-align: center;
+  animation: bgslide 5s linear infinite;
+  overflow: hidden;
+
+  @include breakpoint($breakpoint-tablet-landscape-up) {
+    animation-duration: 15s;
+  }
+
+  @include breakpoint($breakpoint-large-desktop-up) {
+    min-height: 100vh;
+    animation-duration: 30s;
+  }
+
+  p:first-child {
+    margin-right: -10vh;
+    transform: rotate(90deg);
+    color: $color-brand;
+    font-size: 45vh;
+    font-weight: bold;
+    user-select: none;
+
+    @media screen and (max-aspect-ratio: 5/6) {
+      margin-right: -10vw;
+      font-size: 45vw;
+    }
+  }
+
+  p:last-child {
+    position: relative; // position above first child
+  }
+
+  a {
+    @include button;
+
+    margin-top: spacing(3);
+    animation: blink linear .5s infinite;
+    animation-delay: 3s;
+  }
+
+  @keyframes blink {
+    0% { background-color: $color-brand; }
+    50% { background-color: green; }
+    100% { background-color: blue; }
+  }
+
+  @keyframes bgslide {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+  }
+}

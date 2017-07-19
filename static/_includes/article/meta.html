@@ -1,0 +1,21 @@
+<div class="article-meta">
+  {% if page.author %}
+  <span
+    class="author"
+    itemprop="author"
+    itemscope itemtype="http://schema.org/Person">
+
+    <span itemprop="name">
+      {{ page.author }}<br>
+      fastpaced
+    </span>
+  </span>
+  {% endif %}
+
+  <time
+    datetime="{{ page.date | date_to_xmlschema }}"
+    itemprop="datePublished">{{ page.date | date: "%b %-d <br> %Y" }}
+  </time>
+
+  <a href="#share-this-article">Share this<br>article</a>
+</div>

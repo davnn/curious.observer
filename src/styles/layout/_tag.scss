@@ -1,0 +1,37 @@
+#tag > header,
+#tag > #post-list,
+#tag > #cat-dance {
+  @include container;
+
+  @include breakpoint($breakpoint-tablet-landscape-up) {
+    max-width: $width-large;
+  }
+}
+
+#tag > header {
+  h1 {
+    font-family: $font-family--sans;
+    font-size: 16px;
+    letter-spacing: .1em;
+  }
+}
+
+#tag > #post-list {
+  padding-top: spacing(1);
+
+  @include post-list;
+}
+
+#tag > #cat-dance {
+  text-align: center;
+
+  > img {
+    display: block;
+    max-width: 200px;
+    margin: spacing(4) auto spacing(2);
+  }
+
+  > a {
+    @include button;
+  }
+}

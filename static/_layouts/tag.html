@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<header>
+  <h1>#{{ page.tag }}</h1>
+</header>
+
+<div id="post-list">
+  {% if page.posts != nil %}
+    {% include global/post-list.html posts=page.posts %}
+  {% else %}
+    {% include global/post-list.html posts=site.posts %}
+  {% endif %}
+</div>
+
+{% if page.posts.size < 3 or site.posts.size < 3 %}
+<div id="cat-dance">
+  <img src="/assets/global/cat-dance.gif" alt="Dancing cat" width="200px" height="180px">
+  <a href="{{ site.repository }}/issues/new?title=Suggestion%20(%23{{ page.tag }})%3A%20">Suggest a topic</a>
+</div>
+{% endif %}

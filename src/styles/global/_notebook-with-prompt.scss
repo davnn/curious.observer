@@ -1,0 +1,91 @@
+$_prompt-width: 95px;
+$_code-line-height: 1.5;
+$_code-padding: .3rem .5rem;
+
+/* stylelint-disable max-nesting-depth  */
+.jupyter-notebook {
+  font-family: $font-family--mono;
+
+  @include breakpoint($breakpoint-desktop-up) {
+    margin-left: -$_prompt-width;
+  }
+
+  .input,
+  .output,
+  .output_area {
+    display: flex;
+
+    @include breakpoint($breakpoint-phone-only) {
+      display: block;
+    }
+  }
+
+  .output {
+    flex-direction: column;
+  }
+
+  // Area inside output area
+  .output_subarea {
+    flex: 1 1 0;
+    overflow-x: auto;
+
+    pre {
+      border: 1px solid #dfdfdf !important;
+      background-color: #fdfdfd !important;
+    }
+
+    @include breakpoint($breakpoint-tablet-portrait-up) {
+      max-width: calc(100% - #{$_prompt-width});
+
+      pre {
+        border: none !important;
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  // Input
+  .input .inner_cell {
+    @include breakpoint($breakpoint-tablet-portrait-up) {
+      display: flex;
+      flex: 1 1 0;
+      flex-direction: column;
+    }
+  }
+
+  // Prompt
+  .prompt {
+    min-width: $_prompt-width;
+    padding: $_code-padding;
+    line-height: $_code-line-height;
+    user-select: none;
+    cursor: default;
+
+    &.input_prompt {
+      color: darkblue;
+    }
+
+    &.output_prompt {
+      color: darkorange;
+    }
+
+    &:empty {
+      padding: 0;
+    }
+
+    @include breakpoint($breakpoint-desktop-up) {
+      text-align: right;
+    }
+  }
+
+  // Cell is the outermost wrapper
+  .cell + .cell {
+    margin-top: 1rem;
+  }
+
+  // Output directly following input
+  .input + .output_wrapper,
+  .output_area + .output_area {
+    margin-top: .5rem;
+  }
+}

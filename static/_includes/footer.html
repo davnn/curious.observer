@@ -1,0 +1,15 @@
+{% if jekyll.environment == "production" %}
+<script type="text/javascript">
+  {% include assets/dist/main.js %}
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      {% comment %}
+      Only register in a production environment and cache bust on last git commit SHA
+      {% endcomment %}
+      navigator.serviceWorker.register("/sw.js?v={{ site.git.last_commit.short_sha }}");
+    });
+  }
+</script>
+{% else %}
+<script src="/dist/main.js" type="text/javascript" defer="defer"></script>
+{% endif %}

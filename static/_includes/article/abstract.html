@@ -1,0 +1,10 @@
+<div class="article-abstract">
+  {{ include.content }}
+</div>
+
+{% comment %}
+The end of the abstract also marks the end of the excerpt.
+{% endcomment %}
+{{ site.excerpt_separator }}
+
+{% include article/meta.html %}

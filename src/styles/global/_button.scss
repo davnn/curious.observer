@@ -1,0 +1,27 @@
+@mixin button {
+  display: inline-block;
+  min-width: 64px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 3px;
+  background-color: $color-brand;
+  color: #fff;
+  font-family: $font-family--sans;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-appearance: none;
+
+  &:active {
+    background-color: $color-brand-dark;
+    color: #fff;
+  }
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}

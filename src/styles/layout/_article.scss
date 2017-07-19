@@ -1,0 +1,188 @@
+#article {
+  article {
+    @include container($width-medium);
+
+    color: $color-text-dark;
+    font-size: $font-size-text;
+    hyphens: auto;
+
+    @include breakpoint($breakpoint-tablet-portrait-up) {
+      font-size: $font-size-3;
+    }
+  }
+
+  header > h1 {
+    padding-bottom: spacing(2);
+    font-size: $font-size-5;
+    line-height: 1.2;
+
+    @include breakpoint($breakpoint-tablet-landscape-up) {
+      font-size: $font-size-6;
+    }
+  }
+
+  aside {
+    padding: 1rem;
+    color: $color-text-dark-secondary;
+    font-size: $font-size-2;
+
+    @include breakpoint($breakpoint-tablet-landscape-up) {
+      max-width: $measure-small;
+      padding: 0 0 1rem 1rem;
+      float: right;
+    }
+  }
+
+  .article-abstract {
+    max-width: $measure-large;
+    font-size: $font-size-3;
+
+    @include breakpoint($breakpoint-tablet-portrait-up) {
+      font-size: $font-size-4;
+    }
+  }
+
+  .article-meta {
+    box-sizing: content-box;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-top: 1px solid $color-divider-dark;
+    color: $color-text-dark-disabled;
+    font-family: $font-family--sans;
+    font-size: $font-size-1;
+
+    > *:not(:last-child) {
+      margin-right: 1rem;
+      padding-right: 1rem;
+      border-right: 1px solid $color-divider-dark;
+    }
+  }
+
+  //Don't forget the 'Lobotomized Owl' technique on content areas.
+  .article-content > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .article-content > p {
+    max-width: $measure-medium;
+  }
+
+  .article-content > blockquote {
+    position: relative;
+    max-width: $measure-medium;
+    padding-left: 1.05em; // Same as ul/ol indent
+
+    &::before {
+      position: absolute;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: $color-text-dark;
+      content: "";
+    }
+  }
+
+  .article-content > ul,
+  .article-content > ol {
+    padding-left: 1.05em;
+  }
+
+  .article-content > ul {
+    list-style-type: disc;
+  }
+
+  .article-content > ol {
+    list-style-type: decimal;
+  }
+
+  .article-content pre {
+    padding: .3rem .5rem;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+    font-size: $font-size-2;
+    line-height: 1.5;
+    overflow: auto;
+  }
+
+  .appendix,
+  .references,
+  .footnotes {
+    margin: 2rem 0;
+    padding-top: 2rem;
+    border-top: 1px solid $color-divider-dark;
+    color: $color-text-dark-secondary;
+    font-family: $font-family--sans;
+    font-size: $font-size-2;
+
+    * + * {
+      margin-top: .75rem;
+    }
+
+    > h4 {
+      font-size: $font-size-text;
+    }
+
+    p,
+    ol,
+    pre {
+      max-width: $measure-medium;
+    }
+
+    pre {
+      max-width: 32rem;
+      padding: spacing(0);
+      white-space: nowrap;
+    }
+
+    ol {
+      padding-left: 1.05em;
+      list-style-type: decimal;
+    }
+  }
+
+  .appendix > h4:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .references::before,
+  .footnotes::before {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: $font-size-text;
+    font-weight: bold;
+  }
+
+  .references::before {
+    content: "References";
+  }
+
+  .footnotes::before {
+    content: "Footnotes";
+  }
+
+  .footnotes {
+    hr {
+      display: none;
+    }
+
+    p {
+      display: inline;
+    }
+  }
+
+  .references ~ .footnotes,
+  .references ~ .appendix,
+  .footnotes ~ .appendix {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  #TOC {
+    li > ul {
+      margin-left: 1rem;
+    }
+  }
+}

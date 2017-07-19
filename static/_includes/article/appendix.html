@@ -1,0 +1,15 @@
+{% assign default_branch = "master" %}
+
+<section class="appendix">
+  <h4>Updates and Corrections</h4>
+  <p><a href="{{ site.repository }}/commits/{{ default_branch }}/{{ site.source }}/{{ page.path }}">View all changes to this article</a> since it was first published. If you see a mistake or want to suggest a change, please <a href="{{ site.repository }}/issues/new">create an issue on Github</a>.</p>
+
+  <h4>Citations and Reuse</h4>
+  <p>
+    Diagrams and text are licensed under Creative Commons Attribution <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>, unless noted otherwise, with the
+    <a href="{{ site.repository }}/blob/{{ default_branch }}/{{ site.source }}/{{ page.path }}">source available on GitHub</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: “Figure from …”.
+  </p>
+
+  <h4 id="share-this-article">Share this article</h4>
+  <pre>{{ site.url }}{{ page.url }}</pre>
+</section>

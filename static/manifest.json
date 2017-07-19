@@ -1,0 +1,29 @@
+---
+---
+
+{
+  "name": "{{ site.title | smartify }}",
+  "short_name": "Curious",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#fff",
+  "background_color": "#fff",
+  "description": "{{ site.description | smartify }}",
+  "icons": [{
+    "src": "/assets/manifest/homescreen64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  }, {
+    "src": "/assets/manifest/homescreen128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+  }, {
+    "src": "/assets/manifest/homescreen256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }, {
+    "src": "/assets/manifest/homescreen512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

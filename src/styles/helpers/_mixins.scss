@@ -1,0 +1,21 @@
+@mixin container($width: null) {
+  margin: 0 auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+
+  @if $width {
+    @if type_of($width) == "number" {
+      max-width: $width;
+    }
+
+    @else {
+      @error "Container width: #{$width} has to be a number.";
+    }
+  }
+}
+
+@mixin breakpoint($query) {
+  @media #{$query} {
+    @content;
+  }
+}

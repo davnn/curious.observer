@@ -1,0 +1,29 @@
+@function _pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  }
+
+  @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+@function base-spacing($scale, $base: 1rem, $rate: $rate-fifth) {
+  @if round($scale) != $scale {
+    @warn "Spacing should only be used with positive and negative integers.";
+  }
+
+  @return $base * _pow($rate, $scale);
+}
+
+@function spacing($scale: 0) {
+  @return base-spacing($scale);
+}

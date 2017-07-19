@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs", // should enable tree shaking/dead code elimination
+    "baseUrl": "./jekyll",
+    "preserveConstEnums": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules",
+    "static/_includes",
+    "_site"
+  ]
+}

@@ -1,0 +1,105 @@
+/**
+ * Colors
+ */
+
+// Loosely based on material design colors
+// https://material.io/guidelines/style/color.html#color-usability
+// https://material.io/color/#!/?view.left=0&view.right=0&primary.color=B71C1C
+
+// Brand
+$color-brand: #b71c1c;
+$color-brand-dark: #7f0000;
+// Text
+$color-text-dark-secondary: rgba(0, 0, 0, .54);
+$color-text-dark-disabled: rgba(0, 0, 0, .38);
+$color-text-dark: rgba(0, 0, 0, .87);
+$color-text-light: #fff;
+$color-text-light-secondary: rgba(255, 255, 255, .7);
+$color-text-light-disabled: rgba(255, 255, 255, .5);
+// Divider
+$color-divider-dark: rgba(0, 0, 0, .12);
+$color-divider-light: rgba(255, 255, 255, .12);
+// Icon
+$color-icon-dark-active: rgba(0, 0, 0, .54);
+$color-icon-dark-inactive: rgba(0, 0, 0, .38);
+$color-icon-light-active: #fff;
+$color-icon-light-inactive: rgba(255, 255, 255, .5);
+
+/**
+ * Misc
+ */
+$footer-height: 30px;
+$header-width: 400px;
+$header-height: 85px;
+$logo-width: 45px;
+
+/**
+ * Container
+ */
+$container-padding: 1.5rem;
+$width-narrow: 720px;
+$width-medium: 1024px;
+$width-large: 1160px;
+$measure-small: 20em;
+$measure-medium: 32em;
+$measure-large: 35em;
+
+/**
+ * Ratios
+ * You can use ratios for spacing, typography or even grids
+ * Example: (https://codepen.io/corysimmons/pen/BpBXOK?editors=1100#0)
+ */
+/* stylelint-disable */
+$rate-double-octave    : 4;
+$rate-pi               : 3.14159265359     ;
+$rate-major-twelfth    : 3                 ;
+$rate-major-eleventh   : 2.666666667       ;
+$rate-major-tenth      : 2.5               ;
+$rate-octave           : 2                 ;
+$rate-major-seventh    : 1.875             ;
+$rate-minor-seventh    : 1.777777778       ;
+$rate-major-sixth      : 1.666666667       ;
+$rate-phi              : 1.618034          ;
+$rate-golden           : $rate-phi         ;
+$rate-minor-sixth      : 1.6               ;
+$rate-fifth            : 1.5               ;
+$rate-augmented-fourth : 1.41421           ;
+$rate-fourth           : 1.333333333       ;
+$rate-major-third      : 1.25              ;
+$rate-minor-third      : 1.2               ;
+$rate-major-second     : 1.125             ;
+$rate-minor-second     : 1.066666667       ;
+/* stylelint-enable */
+
+/**
+ * Breakpoitns
+ */
+$breakpoint-phone-only: "screen and (max-width: 599px)";
+$breakpoint-tablet-portrait-up: "screen and (min-width: 600px)";
+$breakpoint-tablet-landscape-up: "screen and (min-width: 900px)";
+$breakpoint-small-desktop-up: "screen and (min-width: 1200px)";
+$breakpoint-desktop-up: "screen and (min-width: 1350px)";
+$breakpoint-large-desktop-up: "screen and (min-width: 1680px)";
+
+/**
+ * Z-Indexes
+ */
+$zindex-navigation: 100;
+$zindex-navigation-icon: 101;
+
+/**
+ * Typography
+ */
+$font-family--sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-family--serif: "Playfair Display", "Palatino", "Georgia", "Cambria", "Times New Roman", serif;
+$font-family--mono: monospace;
+
+$font-size-1: .875rem; // 14px
+$font-size-2: 1rem; // 16px
+$font-size-text: 1.125rem; // 18px
+$font-size-3: 1.25rem; // 20px
+$font-size-4: 1.5rem; // 24px
+$font-size-5: 2.25rem; // 36px
+$font-size-6: 3rem; // 48px
+$font-size-subheadline: 4rem; // 64px
+$font-size-headline: 5rem; // 80px

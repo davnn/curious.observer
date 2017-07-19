@@ -1,0 +1,24 @@
+---
+layout: home
+---
+
+<section id="intro">
+  <h1>Data. Science. Code. Design. Thoughts.</h1>
+
+  <p>
+    My name is <b>David Muhr</b> and I am an Austrian Data Science student genuinely interested in too many topics.&nbsp;{% include global/dots.html id="dots" %}
+
+    <span>
+    {% comment %}
+    Nested to enable one transition after the other
+    {% endcomment %}
+    I have a deep interest in computer science principles and especially programming language theory.&nbsp;{% include global/dots.html id="dots-inner" %}
+
+    <span>Never stop questioning 🚀</span>
+  </span>
+  </p>
+</section>
+
+<section id="post-list">
+  {% include global/post-list.html posts=site.posts %}
+</section>
