@@ -2,9 +2,7 @@
 title: Curious Observer
 author: David Muhr
 email: dm@curious.observer
-description: > # this means to ignore newlines until "baseurl:"
-  Curious Observer is about exploring science and technology. This blog is a place to learn about interesting ideas, explained from first principles.
-
+description: Curious Observer is about exploring science and technology. This blog is a place to learn about interesting ideas, explained from first principles.
 # Site configuration
 baseurl: ""
 url: "https://curious.observer"
