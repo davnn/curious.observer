@@ -23,7 +23,7 @@ data_dir: articles # Create custom data files directly in the articles directory
 markdown: Pandoc
 pandoc:
   options:
-    from: markdown_github+citations+footnotes+inline_notes
+    from: markdown_github+citations+footnotes+inline_notes+tex_math_dollars
     to: html5
     csl: ./static/assets/_hidden/ieee.csl
     # Needed until https://github.com/jgm/pandoc/issues/1612
@@ -32,6 +32,7 @@ pandoc:
   flags:
   - smart
   - normalize
+  - katex
 
 # This options is mostly disabled in development to speed up builds
 jupyter:
