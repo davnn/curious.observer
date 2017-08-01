@@ -1,6 +1,6 @@
 ---
 layout: article
-title:  "A modern blog"
+title:  "A Modern Blog"
 author: David Muhr
 tags:
 - Meta
