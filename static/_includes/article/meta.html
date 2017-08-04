@@ -1,4 +1,4 @@
-<div class="article-meta">
+<div class="meta">
   {% if page.author %}
   <span
     class="author"
@@ -6,16 +6,16 @@
     itemscope itemtype="http://schema.org/Person">
 
     <span itemprop="name">
-      {{ page.author }}<br>
-      fastpaced
+      <a href="/">{{ page.author }}</a>
+      <a href="https://hub.link">Hublink</a>
     </span>
   </span>
   {% endif %}
 
   <time
     datetime="{{ page.date | date_to_xmlschema }}"
-    itemprop="datePublished">{{ page.date | date: "%b %-d <br> %Y" }}
+    itemprop="datePublished">{{ page.date | date: "%b. %-d, %Y" }}
   </time>
 
-  <a href="#share-this-article">Share this<br>article</a>
+  <a href="#share-this-article">Share this article</a>
 </div>

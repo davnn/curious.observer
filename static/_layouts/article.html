@@ -2,13 +2,19 @@
 layout: default
 ---
 
-<article itemscope itemtype="http://schema.org/BlogPosting">
+{% capture centered %}
+{% if page.centered %}
+class="centered"
+{% endif %}
+{% endcapture %}
+
+<article {{centered}} itemscope itemtype="http://schema.org/BlogPosting">
 
   <header>
     <h1 itemprop="name headline">{{ page.title }}</h1>
   </header>
 
-  <div class="article-content" itemprop="articleBody">
+  <div class="content" itemprop="articleBody">
     {{ content }}
 
     {% comment %}
