@@ -5,13 +5,10 @@
     color: $color-text-dark;
     font-size: $font-size-text;
     hyphens: auto;
-
-    @include breakpoint($breakpoint-tablet-portrait-up) {
-      font-size: $font-size-3;
-    }
   }
 
   header > h1 {
+    max-width: $font-size-4 * strip-unit($measure-large);
     padding-bottom: spacing(2);
     font-size: $font-size-5;
     line-height: 1.2;
@@ -33,19 +30,14 @@
     }
   }
 
-  .article-abstract {
+  .abstract {
     max-width: $measure-large;
     font-size: $font-size-3;
-
-    @include breakpoint($breakpoint-tablet-portrait-up) {
-      font-size: $font-size-4;
-    }
   }
 
-  .article-meta {
-    box-sizing: content-box;
+  .meta {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     padding-top: .5rem;
     padding-bottom: .5rem;
     border-top: 1px solid $color-divider-dark;
@@ -53,25 +45,37 @@
     font-family: $font-family--sans;
     font-size: $font-size-1;
 
-    > *:not(:last-child) {
-      margin-right: 1rem;
-      padding-right: 1rem;
-      border-right: 1px solid $color-divider-dark;
+    > * {
+      margin-top: .2rem;
     }
   }
 
   //Don't forget the 'Lobotomized Owl' technique on content areas.
-  .article-content > * + * {
+  .content > * + * {
     margin-top: 1.5rem;
   }
 
-  .article-content > p {
+  p,
+  ol,
+  ul,
+  blockquote {
     max-width: $measure-medium;
   }
 
-  .article-content > blockquote {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .references,
+  .footnotes,
+  .appendix {
+    max-width: $font-size-3 * strip-unit($measure-medium);
+  }
+
+  .content > blockquote {
     position: relative;
-    max-width: $measure-medium;
     padding-left: 1.05em; // Same as ul/ol indent
 
     &::before {
@@ -84,20 +88,20 @@
     }
   }
 
-  .article-content > ul,
-  .article-content > ol {
+  .content > ul,
+  .content > ol {
     padding-left: 1.05em;
   }
 
-  .article-content > ul {
+  .content > ul {
     list-style-type: disc;
   }
 
-  .article-content > ol {
+  .content > ol {
     list-style-type: decimal;
   }
 
-  .article-content pre {
+  .content pre {
     padding: .3rem .5rem;
     border: 1px solid #cfcfcf;
     border-radius: 2px;
@@ -123,12 +127,6 @@
 
     > h4 {
       font-size: $font-size-text;
-    }
-
-    p,
-    ol,
-    pre {
-      max-width: $measure-medium;
     }
 
     pre {
@@ -183,6 +181,122 @@
   #TOC {
     li > ul {
       margin-left: 1rem;
+    }
+  }
+
+  // Minimalistic table style used both in code output and directly in the article
+  table {
+    border: none;
+    color: black;
+    font-size: $font-size-2;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+
+    thead {
+      border-bottom: 1px solid black;
+      vertical-align: bottom;
+    }
+
+    tr {
+      border: none;
+      line-height: normal;
+    }
+
+    td,
+    th {
+      padding: .5rem;
+      border: none;
+    }
+  }
+
+  // Modifiers
+  // Can be used with the pandoc link attributes syntax, e.g. { .centered }
+  .caption {
+    display: block;
+    font-size: $font-size-2;
+    font-style: italic;
+  }
+
+  .caption::before {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .caption.figure::before {
+    content: "Figure: ";
+  }
+
+  .caption.table::before {
+    content: "Table: ";
+  }
+
+  .centered {
+    display: block;
+    margin: auto;
+  }
+
+  .half {
+    max-width: ($font-size-3 * strip-unit($measure-medium)) / 2;
+  }
+
+  // Tablet-portrait up
+  /* stylelint-disable max-nesting-depth */
+  @include breakpoint($breakpoint-tablet-portrait-up) {
+    article {
+      font-size: $font-size-3;
+    }
+
+    .abstract {
+      font-size: $font-size-4;
+    }
+
+    .meta {
+      flex-direction: row;
+      justify-content: flex-end;
+
+      a {
+        display: block;
+      }
+
+      > time,
+      > a {
+        display: inline;
+        max-width: 6em; // force line break
+      }
+
+      > *:not(:last-child) {
+        margin-right: 1rem;
+        padding-right: 1rem;
+        border-right: 1px solid $color-divider-dark;
+      }
+    }
+
+    // Centered variation
+    // Can be used by placing "centered: true" in the YAML frontmatter
+    article.centered {
+      header > h1 {
+        margin: auto;
+        text-align: center;
+      }
+
+      .abstract {
+        text-align: center;
+      }
+
+      .content > * {
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .meta {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .caption {
+        text-align: center;
+      }
     }
   }
 }

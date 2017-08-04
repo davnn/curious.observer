@@ -35,31 +35,6 @@
 
   .output_subarea {
     overflow: auto;
-
-    table {
-      border: none;
-      color: black;
-      border-collapse: collapse;
-      border-spacing: 0;
-      table-layout: fixed;
-
-      thead {
-        border-bottom: 1px solid black;
-        vertical-align: bottom;
-      }
-
-      tr {
-        border: none;
-        line-height: normal;
-        text-align: right;
-      }
-
-      td,
-      th {
-        padding: .5rem;
-        border: none;
-      }
-    }
   }
 
   .output_subarea::before {
