@@ -23,9 +23,9 @@ data_dir: articles # Create custom data files directly in the articles directory
 markdown: Pandoc
 pandoc:
   options:
-    from: markdown_github+citations+footnotes+inline_notes+tex_math_dollars
+    from: markdown_github+citations+footnotes+inline_notes+tex_math_dollars+link_attributes+bracketed_spans
     to: html5
-    csl: ./static/assets/_hidden/ieee.csl
+    csl: ./static/assets/_hidden/ieee-with-url.csl
     # Needed until https://github.com/jgm/pandoc/issues/1612
     # --toc flag gets set by plugin and YAMl frontmatter toc: true
     template: ./static/assets/_hidden/template.md
