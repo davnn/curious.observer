@@ -241,13 +241,8 @@
     content: "Table: ";
   }
 
-  .centered {
-    display: block;
-    margin: auto;
-  }
-
-  .half {
-    max-width: ($font-size-3 * strip-unit($measure-medium)) / 2;
+  .caption.code::before {
+    content: "Code: ";
   }
 
   // Tablet-portrait up
@@ -306,6 +301,12 @@
 
       .caption {
         text-align: center;
+      }
+
+      img {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
       }
     }
   }
