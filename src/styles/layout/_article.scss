@@ -111,6 +111,15 @@
     overflow: auto;
   }
 
+  sup,
+  .citation {
+    position: relative;
+    top: -.5em;
+    padding-bottom: .5em;
+    font-size: 75%;
+  }
+
+  // Generated content below article
   .appendix,
   .references,
   .footnotes {
@@ -178,6 +187,7 @@
     border-top: 0;
   }
 
+  // Table of contents
   #TOC {
     li > ul {
       margin-left: 1rem;
