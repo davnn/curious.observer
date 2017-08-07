@@ -129,6 +129,7 @@
     color: $color-text-dark-secondary;
     font-family: $font-family--sans;
     font-size: $font-size-2;
+    word-wrap: break-word;
 
     * + * {
       margin-top: .75rem;
@@ -220,20 +221,28 @@
     }
   }
 
+  .math.display {
+    display: block;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
   // Modifiers
   // Can be used with the pandoc link attributes syntax, e.g. { .centered }
+  figcaption,
   .caption {
     display: block;
+    padding-top: .5em;
     font-size: $font-size-2;
     font-style: italic;
   }
 
+  figcaption::before,
   .caption::before {
-    display: inline;
     font-weight: bold;
   }
 
-  .caption.figure::before {
+  figcaption::before {
     content: "Figure: ";
   }
 
@@ -243,6 +252,10 @@
 
   .caption.code::before {
     content: "Code: ";
+  }
+
+  .caption.equation::before {
+    content: "Equation: ";
   }
 
   // Tablet-portrait up
@@ -285,10 +298,6 @@
         text-align: center;
       }
 
-      .abstract {
-        text-align: center;
-      }
-
       .content > * {
         margin-right: auto;
         margin-left: auto;
@@ -299,14 +308,11 @@
         text-align: center;
       }
 
-      .caption {
+      .abstract,
+      figure,
+      .caption,
+      math.display {
         text-align: center;
-      }
-
-      img {
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
       }
     }
   }
