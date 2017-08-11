@@ -68,6 +68,7 @@
   h4,
   h5,
   h6,
+  img,
   .references,
   .footnotes,
   .appendix {
@@ -256,6 +257,11 @@
 
   .caption.equation::before {
     content: "Equation: ";
+  }
+
+  // This modifier can be used to let items like images break out of the column size
+  .full-width {
+    max-width: none;
   }
 
   // Tablet-portrait up
