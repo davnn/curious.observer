@@ -69,6 +69,8 @@
   h5,
   h6,
   img,
+  figcaption,
+  .caption,
   .references,
   .footnotes,
   .appendix {
@@ -226,6 +228,11 @@
     display: block;
     overflow-x: auto;
     overflow-y: hidden;
+  }
+
+  figcaption {
+    margin-right: auto;
+    margin-left: auto;
   }
 
   // Modifiers
