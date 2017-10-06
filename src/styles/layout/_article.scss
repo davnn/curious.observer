@@ -85,7 +85,7 @@
   .content > h4,
   .content > h5,
   .content > h6 {
-    padding-top: strip-unit($default_margin) + 0em;
+    padding-top: strip-unit($default_margin) + em;
   }
 
   // Content that needs more spacing
@@ -93,12 +93,12 @@
   .content > blockquote,
   .content > .sourceCode,
   .content > .jupyter-notebook {
-    margin-top: $default_margin * 3;
-    margin-bottom: $default_margin * 3;
+    margin-top: $default_margin * 2;
+    margin-bottom: $default_margin * 2;
   }
 
   .content .math {
-    margin-top: $default_margin * 3;
+    margin-top: $default_margin * 2;
 
     /**
      * Pandoc wraps math in a span, which in turn gets wrapped in a classless <p> tag if the span
@@ -109,11 +109,11 @@
      * if there is one.
      */
     &:only-child {
-      margin-bottom: $default_margin * 3;
+      margin-bottom: $default_margin * 2;
     }
 
     + * {
-      margin-bottom: $default_margin * 3;
+      margin-bottom: $default_margin * 2;
     }
   }
 
@@ -277,8 +277,15 @@
     margin-left: auto;
   }
 
+  #disqus_thread {
+    margin-top: spacing(5);
+    padding-top: spacing(2);
+    border-top: 1px dashed $color-brand;
+  }
+
   // Modifiers
   // Can be used with the pandoc link attributes syntax, e.g. { .centered }
+  noscript, // e.g. used for disabled Disqus integration
   figcaption,
   .caption {
     display: block;

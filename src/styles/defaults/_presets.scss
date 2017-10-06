@@ -34,6 +34,10 @@ a {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, .075);
 
+  &:visited {
+    color: $color-brand;
+  }
+
   &:active {
     color: $color-brand-dark;
   }

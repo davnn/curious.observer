@@ -2,8 +2,19 @@
   {% for post in include.posts %}
   <li>
     <h2>
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}<span>{{ post.date | date: "%b %-d, %Y" }}</span></a>
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      <span>
+        {% if post.comments %}
+        <a href="{{ post.url | prepend: site.url }}#disqus_thread"></a>
+        {% endif %}
+        {{ post.date | date: "%b %-d, %Y" }}
+      </span>
     </h2>
   </li>
   {% endfor %}
 </ul>
+{% comment %}
+Automatically show the comment count for all articles that link to ARTICLE_URL#disqus_thread
+See: https://help.disqus.com/customer/portal/articles/565624-adding-comment-count-links-to-your-home-page
+{% endcomment %}
+<script id="dsq-count-scr" src="//curiousobserver.disqus.com/count.js" async></script>

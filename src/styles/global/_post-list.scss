@@ -5,23 +5,21 @@
     }
   }
 
-  ul a {
+  h2 {
     display: flex;
     flex-direction: column;
     margin: 1.5rem 0;
-    transition-duration: .25s;
-    transition-property: color;
-    color: $color-brand;
-    font-size: $font-size-4;
     font-weight: normal;
 
-    &:hover,
-    &:focus {
-      color: $color-brand;
-    }
+    > a {
+      transition-duration: .25s;
+      transition-property: color;
+      font-size: $font-size-4;
 
-    &:active {
-      color: $color-brand-dark;
+      &:hover,
+      &:focus {
+        color: $color-brand;
+      }
     }
 
     > span {
@@ -30,12 +28,19 @@
       font-size: $font-size-1;
     }
 
+    > span a {
+      margin-right: spacing(0);
+    }
+
     @include breakpoint($breakpoint-tablet-landscape-up) {
       flex-direction: row;
       align-items: baseline;
       justify-content: space-between;
-      color: $color-text-dark-secondary;
-      font-size: $font-size-5;
+
+      > a {
+        color: $color-text-dark-secondary;
+        font-size: $font-size-5;
+      }
     }
   }
 }

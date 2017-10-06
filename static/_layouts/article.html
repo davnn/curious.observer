@@ -21,6 +21,13 @@ class="centered"
     Added after the article-content, because this should come after references and footnotes
     {% endcomment %}
     {% include article/appendix.html %}
+
+    {% comment %}
+    Add disqus comments if comments is set to true
+    {% endcomment %}
+    {% if page.comments %}
+    {% include article/comments.html %}
+    {% endif %}
   </div>
 
 </article>
