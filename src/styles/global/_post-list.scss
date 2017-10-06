@@ -1,8 +1,6 @@
 @mixin post-list {
   ul > li {
     &:not(:last-child) {
-      margin-bottom: spacing(2);
-      padding-bottom: spacing(2);
       border-bottom: 1px solid $color-divider-dark;
     }
   }
@@ -28,7 +26,6 @@
 
     > span {
       padding-top: .5rem;
-      color: $color-text-dark-secondary;
       font-family: $font-family--sans;
       font-size: $font-size-1;
     }

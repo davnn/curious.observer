@@ -50,11 +50,6 @@
     }
   }
 
-  //Don't forget the 'Lobotomized Owl' technique on content areas.
-  .content > * + * {
-    margin-top: 1.5rem;
-  }
-
   p,
   ol,
   ul,
@@ -77,15 +72,61 @@
     max-width: $font-size-3 * strip-unit($measure-medium);
   }
 
+  $default_margin: 1.25rem;
+
+  //Don't forget the 'Lobotomized Owl' technique on content areas.
+  .content > * + * {
+    margin-top: $default_margin;
+  }
+
+  .content > h1,
+  .content > h2,
+  .content > h3,
+  .content > h4,
+  .content > h5,
+  .content > h6 {
+    padding-top: strip-unit($default_margin) + 0em;
+  }
+
+  // Content that needs more spacing
+  .content > figure,
+  .content > blockquote,
+  .content > .sourceCode,
+  .content > .jupyter-notebook {
+    margin-top: $default_margin * 3;
+    margin-bottom: $default_margin * 3;
+  }
+
+  .content .math {
+    margin-top: $default_margin * 3;
+
+    /**
+     * Pandoc wraps math in a span, which in turn gets wrapped in a classless <p> tag if the span
+     * is on it's own (not inside an already existing paragraph)
+     *
+     * We thus do not have a container where both math content and caption are captured. The trick
+     * is to add the bottom margin to the math code if there is no caption and add it to the caption
+     * if there is one.
+     */
+    &:only-child {
+      margin-bottom: $default_margin * 3;
+    }
+
+    + * {
+      margin-bottom: $default_margin * 3;
+    }
+  }
+
   .content > blockquote {
     position: relative;
     padding-left: 1.05em; // Same as ul/ol indent
 
     &::before {
       position: absolute;
+      top: -25%;
       left: 0;
       width: 4px;
-      height: 100%;
+      height: 150%;
       background-color: $color-text-dark;
       content: "";
     }
@@ -120,6 +161,7 @@
     top: -.5em;
     padding-bottom: .5em;
     font-size: 75%;
+    white-space: nowrap;
   }
 
   // Generated content below article

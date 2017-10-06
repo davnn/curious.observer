@@ -32,12 +32,6 @@
     @include dots;
   }
 
-  @include breakpoint($breakpoint-tablet-portrait-up) {
-    > h1 {
-      font-size: $font-size-subheadline;
-    }
-  }
-
   @include breakpoint($breakpoint-tablet-landscape-up) {
     > h1 {
       font-size: $font-size-headline;
