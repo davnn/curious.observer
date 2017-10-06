@@ -7,7 +7,7 @@ before_install:
   - nvm install node
 
 install:
-  - git config --file=.gitmodules submodule.static/articles.url https://$BITBUCKET_USER:$BITBUCKET_USER@bitbucket.org/davnn/articles
+  - git config --file=.gitmodules submodule.static/articles.url https://$BITBUCKET_USER:$BITBUCKET_PASSWORD@bitbucket.org/davnn/articles
   - git submodule update --init --recursive
   - gem install bundler
   - pip install jupyter
