@@ -8,7 +8,7 @@ before_install:
 
 install:
   - git config --file=.gitmodules submodule.static/articles.url https://davnn:$BITBUCKET_PASSWORD@bitbucket.org/davnn/articles
-  - git submodule update --init --recursive
+  - git submodule update --init --recursive --remote
   - gem install bundler
   - pip install jupyter
   - npm install
