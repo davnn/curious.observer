@@ -25,7 +25,7 @@ class="centered"
     {% comment %}
     Add disqus comments if comments is set to true
     {% endcomment %}
-    {% if page.comments and jekyll.environment == "production" %}
+    {% if page.comments %}
     {% include article/comments.html %}
     {% endif %}
   </div>
