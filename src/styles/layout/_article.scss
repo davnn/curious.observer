@@ -85,7 +85,7 @@
   .content > h4,
   .content > h5,
   .content > h6 {
-    margin-top: $default_margin * 3;
+    margin-top: strip-unit($default_margin) * 2 + em;
   }
 
   // Content that needs more spacing
