@@ -7,14 +7,13 @@
   "scripts": {
     "accessibility": "a11y public/**/*.html",
     "clean": "rm -rf public",
-    "lint:style": "stylelint src/styles/*.scss src/styles/**/*.scss",
-    "lint:scripts": "tslint --project tsconfig.json --type-check src/scripts/*.ts src/srcipts/**/*.ts",
-    "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
+    "docker": "docker build -t curiousobserver .",
+    "watch:docker": "docker run -v $(pwd):/usr/src/app curiousobserver build --watch --force_polling --incremental --config _config.yml,_config-dev.yml",
+    "build:docker": "docker run -v $(pwd):/usr/src/app -e JEKYLL_ENV=production curiousobserver build --config _config.yml",
     "build:webpack": "webpack -p --config webpack.production.js",
-    "build": "run-s clean build:webpack build:jekyll",
-    "watch:jekyll": "JEKYLL_ENV=development bundle exec jekyll build --watch --incremental --config _config.yml,_config-dev.yml",
     "watch:webpack": "webpack-dev-server --inline --hot --watch-content-base --config webpack.development.js",
-    "start": "npm run clean && run-p watch:jekyll watch:webpack"
+    "start": "npm run clean && run-p watch:docker watch:webpack",
+    "build": "run-s clean docker build:webpack build:docker"
   },
   "author": "David Muhr <dm@curious.observer>, <@davnn>",
   "license": "MIT",
