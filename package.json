@@ -12,7 +12,7 @@
     "build:docker": "docker run -v $(pwd):/usr/src/app -e JEKYLL_ENV=production curiousobserver build --config _config.yml",
     "build:webpack": "webpack -p --config webpack.production.js",
     "watch:webpack": "webpack-dev-server --inline --hot --watch-content-base --config webpack.development.js",
-    "start": "npm run clean && run-p watch:docker watch:webpack",
+    "start": "npm run clean && npm run docker && run-p watch:docker watch:webpack",
     "build": "run-s clean docker build:webpack build:docker"
   },
   "author": "David Muhr <dm@curious.observer>, <@davnn>",

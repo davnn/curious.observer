@@ -12,9 +12,13 @@
     font-weight: normal;
 
     > a {
+      font-size: $font-size-4;
+    }
+
+    > a,
+    > span > a {
       transition-duration: .25s;
       transition-property: color;
-      font-size: $font-size-4;
 
       &:hover,
       &:focus {
@@ -28,8 +32,9 @@
       font-size: $font-size-1;
     }
 
-    > span a {
+    > span > a {
       margin-right: spacing(0);
+      color: $color-text-dark-secondary;
     }
 
     @include breakpoint($breakpoint-tablet-landscape-up) {
