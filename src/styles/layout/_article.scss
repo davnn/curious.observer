@@ -320,6 +320,13 @@
     max-width: none;
   }
 
+  @include breakpoint($breakpoint-phone-only) {
+    .meta a + a::before {
+      color: $color-text-dark-disabled;
+      content: " - ";
+    }
+  }
+
   // Tablet-portrait up
   /* stylelint-disable max-nesting-depth */
   @include breakpoint($breakpoint-tablet-portrait-up) {
